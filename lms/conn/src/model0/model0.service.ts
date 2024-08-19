@@ -16,7 +16,7 @@ export class Model0Service {
     const payload0: JWTInterface = await this.prismaservice.test.create({
       data: createModel0Dto,
     });
-    return { accessToken: this.jwtservice.sign(payload0) };
+    return { accessToken: this.jwtservice.sign(payload0) }; // Never use JWT as primary encryption, this is only for the testing purposes!!!!!
   }
 
   async findAll() {
@@ -36,7 +36,7 @@ export class Model0Service {
         password: updateModel0Dto.password,
       },
     });
-    return { accessToken: this.jwtservice.sign(payload0) };
+    return { accessToken: this.jwtservice.sign(payload0) }; // Never use JWT as primary encryption, this is only for the testing purposes!!!!!
   }
 
   async remove(email: string) {
