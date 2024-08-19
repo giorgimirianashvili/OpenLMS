@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { Model0Service } from './model0.service';
 import { CreateModel0Dto } from './dto/create-model0.dto';
 import { UpdateModel0Dto } from './dto/update-model0.dto';
@@ -24,7 +32,10 @@ export class Model0Controller {
   }
 
   @Patch(':email')
-  update(@Param('email') email: string, @Body() updateModel0Dto: Prisma.TestUpdateInput) {
+  update(
+    @Param('email') email: string,
+    @Body() updateModel0Dto: Prisma.TestUpdateInput,
+  ) {
     return this.model0Service.update(email, updateModel0Dto);
   }
 

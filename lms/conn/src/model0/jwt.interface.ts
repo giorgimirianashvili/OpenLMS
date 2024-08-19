@@ -1,6 +1,6 @@
-export interface JWTInterface{
-    id: number;
-    name: string;
-    email: string;
-    password: string;
+export interface JWTInterface {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
 }

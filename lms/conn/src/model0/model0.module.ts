@@ -8,11 +8,11 @@ import { PrismaService } from 'prisma/prisma.service';
 @Module({
   imports: [
     PassportModule.register({
-      defaultStrategy: "jwt"
+      defaultStrategy: 'jwt',
     }),
     JwtModule.register({
-      secret: "your-secret"
-    })
+      secret: 'your-secret',
+    }),
   ],
   controllers: [Model0Controller],
   providers: [Model0Service, PrismaService],
