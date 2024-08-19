@@ -25,11 +25,12 @@ let Model0Service = class Model0Service {
     async findAll() {
         return this.prismaservice.test.findMany();
     }
-    findOne(id) {
-        return `This action returns a #${id} model0`;
+    async findOne(name) {
+        return await this.prismaservice.test.findMany({ where: { name: name } });
     }
-    update(id, updateModel0Dto) {
-        return `This action updates a #${id} model0`;
+    async update(email, updateModel0Dto) {
+        const payload0 = await this.prismaservice.test.update({ where: { email: email }, data: { name: updateModel0Dto.name, email: updateModel0Dto.email, password: updateModel0Dto.password } });
+        return { accessToken: this.jwtservice.sign(payload0) };
     }
     remove(id) {
         return `This action removes a #${id} model0`;

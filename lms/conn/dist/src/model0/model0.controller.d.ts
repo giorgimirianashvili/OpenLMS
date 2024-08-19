@@ -1,5 +1,4 @@
 import { Model0Service } from './model0.service';
-import { UpdateModel0Dto } from './dto/update-model0.dto';
 import { Prisma } from '@prisma/client';
 export declare class Model0Controller {
     private readonly model0Service;
@@ -13,7 +12,14 @@ export declare class Model0Controller {
         email: string;
         password: string;
     }[]>;
-    findOne(id: string): string;
-    update(id: string, updateModel0Dto: UpdateModel0Dto): string;
+    findOne(name: string): Promise<{
+        id: number;
+        name: string;
+        email: string;
+        password: string;
+    }[]>;
+    update(email: string, updateModel0Dto: Prisma.TestUpdateInput): Promise<{
+        accessToken: string;
+    }>;
     remove(id: string): string;
 }

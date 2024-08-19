@@ -1,4 +1,3 @@
-import { UpdateModel0Dto } from './dto/update-model0.dto';
 import { PrismaService } from 'prisma/prisma.service';
 import { Prisma } from '@prisma/client';
 import { JwtService } from '@nestjs/jwt';
@@ -15,7 +14,14 @@ export declare class Model0Service {
         email: string;
         password: string;
     }[]>;
-    findOne(id: number): string;
-    update(id: number, updateModel0Dto: UpdateModel0Dto): string;
+    findOne(name: string): Promise<{
+        id: number;
+        name: string;
+        email: string;
+        password: string;
+    }[]>;
+    update(email: string, updateModel0Dto: Prisma.TestUpdateInput): Promise<{
+        accessToken: string;
+    }>;
     remove(id: number): string;
 }

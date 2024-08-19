@@ -21,12 +21,13 @@ export class Model0Service {
     return this.prismaservice.test.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} model0`;
+  async findOne(name: string) {
+    return await this.prismaservice.test.findMany({where: {name: name}});
   }
 
-  update(id: number, updateModel0Dto: UpdateModel0Dto) {
-    return `This action updates a #${id} model0`;
+  async update(email: string, updateModel0Dto: Prisma.TestUpdateInput) {
+    const payload0: JWTInterface = await this.prismaservice.test.update({where: {email: email}, data: {name: updateModel0Dto.name, email: updateModel0Dto.email, password: updateModel0Dto.password}});
+    return {accessToken: this.jwtservice.sign(payload0)};
   }
 
   remove(id: number) {

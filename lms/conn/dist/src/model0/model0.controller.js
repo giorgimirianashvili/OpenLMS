@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Model0Controller = void 0;
 const common_1 = require("@nestjs/common");
 const model0_service_1 = require("./model0.service");
-const update_model0_dto_1 = require("./dto/update-model0.dto");
 const client_1 = require("@prisma/client");
 let Model0Controller = class Model0Controller {
     constructor(model0Service) {
@@ -27,11 +26,11 @@ let Model0Controller = class Model0Controller {
     findAll() {
         return this.model0Service.findAll();
     }
-    findOne(id) {
-        return this.model0Service.findOne(+id);
+    findOne(name) {
+        return this.model0Service.findOne(name);
     }
-    update(id, updateModel0Dto) {
-        return this.model0Service.update(+id, updateModel0Dto);
+    update(email, updateModel0Dto) {
+        return this.model0Service.update(email, updateModel0Dto);
     }
     remove(id) {
         return this.model0Service.remove(+id);
@@ -52,18 +51,18 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], Model0Controller.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':name'),
+    __param(0, (0, common_1.Param)('name')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], Model0Controller.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Patch)(':email'),
+    __param(0, (0, common_1.Param)('email')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_model0_dto_1.UpdateModel0Dto]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], Model0Controller.prototype, "update", null);
 __decorate([

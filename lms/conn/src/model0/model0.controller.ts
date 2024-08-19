@@ -18,14 +18,14 @@ export class Model0Controller {
     return this.model0Service.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.model0Service.findOne(+id);
+  @Get(':name')
+  findOne(@Param('name') name: string) {
+    return this.model0Service.findOne(name);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateModel0Dto: UpdateModel0Dto) {
-    return this.model0Service.update(+id, updateModel0Dto);
+  @Patch(':email')
+  update(@Param('email') email: string, @Body() updateModel0Dto: Prisma.TestUpdateInput) {
+    return this.model0Service.update(email, updateModel0Dto);
   }
 
   @Delete(':id')
