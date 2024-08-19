@@ -39,7 +39,7 @@ export class Model0Service {
     return { accessToken: this.jwtservice.sign(payload0) };
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} model0`;
+  async remove(email: string) {
+    return await this.prismaservice.test.deleteMany({where: {email: email}});
   }
 }
