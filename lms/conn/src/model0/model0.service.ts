@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { CreateModel0Dto } from './dto/create-model0.dto';
-import { UpdateModel0Dto } from './dto/update-model0.dto';
 import { PrismaService } from 'prisma/prisma.service';
 import { Prisma } from '@prisma/client';
 import { JwtService } from '@nestjs/jwt';
